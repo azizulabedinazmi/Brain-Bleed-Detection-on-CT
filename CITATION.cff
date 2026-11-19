@@ -9,6 +9,13 @@ authors:
 license: MIT
 repository-code: "https://github.com/azizulabedinazmi/Brain-Bleed-Detection-on-CT"
 url: "https://github.com/azizulabedinazmi/Brain-Bleed-Detection-on-CT"
+identifiers:
+  - type: url
+    value: "https://github.com/azizulabedinazmi/Brain-Bleed-Detection-on-CT"
+    description: "Source code, notebook and results"
+  - type: url
+    value: "https://www.kaggle.com/datasets/azizulabedinazmi/rsna-ich-efficientnet-b2-25d-weights"
+    description: "Trained model weights (Kaggle dataset)"
 abstract: >-
   Multi-label detection of intracranial hemorrhage (any, epidural, intraparenchymal,
   intraventricular, subarachnoid, subdural) on head CT slices from the RSNA Intracranial
@@ -22,6 +29,17 @@ keywords:
   - EfficientNet
   - RSNA
 references:
+  - type: data
+    title: "RSNA ICH EfficientNet-B2 2.5D Weights"
+    authors:
+      - given-names: "Azizul Abedin"
+        family-names: "Azmi"
+        orcid: "https://orcid.org/0009-0003-5269-6900"
+    publisher:
+      name: "Kaggle"
+    year: 2026
+    url: "https://www.kaggle.com/datasets/azizulabedinazmi/rsna-ich-efficientnet-b2-25d-weights"
+    license: CC-BY-NC-4.0
   - type: article
     title: "Construction of a Machine Learning Dataset through Collaboration: The RSNA 2019 Brain CT Hemorrhage Challenge"
     authors:
