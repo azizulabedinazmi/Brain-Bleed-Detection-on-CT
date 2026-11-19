@@ -598,6 +598,7 @@ If you use this work, please credit it (see [License](#15-license)). GitHub's **
   author = {Azizul Abedin Azmi},
   title  = {Brain Bleed Detection on CT: 2.5D EfficientNet-B2 and BiGRU for Intracranial Hemorrhage Detection},
   year   = {2026},
+  howpublished = {\url{https://github.com/azizulabedinazmi/Brain-Bleed-Detection-on-CT}},
   note   = {ORCID: 0009-0003-5269-6900. Code: MIT License; documentation and figures: CC BY 4.0}
 }
 ```

@@ -7,6 +7,8 @@ authors:
     family-names: "Azmi"
     orcid: "https://orcid.org/0009-0003-5269-6900"
 license: MIT
+repository-code: "https://github.com/azizulabedinazmi/Brain-Bleed-Detection-on-CT"
+url: "https://github.com/azizulabedinazmi/Brain-Bleed-Detection-on-CT"
 abstract: >-
   Multi-label detection of intracranial hemorrhage (any, epidural, intraparenchymal,
   intraventricular, subarachnoid, subdural) on head CT slices from the RSNA Intracranial
