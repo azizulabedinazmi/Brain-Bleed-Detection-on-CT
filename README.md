@@ -12,6 +12,7 @@
 [![Kaggle](https://img.shields.io/badge/Kaggle-RSNA%20ICH-20BEFF?logo=kaggle&logoColor=white)](https://www.kaggle.com/competitions/rsna-intracranial-hemorrhage-detection)
 [![Code: MIT](https://img.shields.io/badge/Code-MIT-yellow.svg)](LICENSE)
 [![Docs: CC BY 4.0](https://img.shields.io/badge/Docs%20%26%20figures-CC%20BY%204.0-lightgrey.svg)](LICENSE-docs)
+[![Weights on Kaggle](https://img.shields.io/badge/Weights-Kaggle%20Dataset-20BEFF?logo=kaggle&logoColor=white)](https://www.kaggle.com/datasets/azizulabedinazmi/rsna-ich-efficientnet-b2-25d-weights)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0003--5269--6900-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0003-5269-6900)
 
 <img src="assets/output.png" alt="One CT slice per hemorrhage subtype shown in brain, blood and soft-tissue windows and as an RGB stack" width="92%">
@@ -489,6 +490,22 @@ If the data is missing and `AUTO_DOWNLOAD = True`, the notebook downloads the zi
 For a quick smoke test, override the config through an environment variable before starting Jupyter, for example
 `RSNA_CFG='{"N_SLICES": 3000, "EPOCHS": 1}'`.
 
+### Trained weights
+
+The trained model and run outputs are on Kaggle:
+**[RSNA ICH EfficientNet-B2 2.5D Weights](https://www.kaggle.com/datasets/azizulabedinazmi/rsna-ich-efficientnet-b2-25d-weights)**
+(currently private).
+
+| File | Content |
+|---|---|
+| `best_cnn.pt` | CNN `state_dict`, best epoch (3), the model behind the 0.08346 private score |
+| `seq_gru_fold0-4.pt` | Bidirectional GRU, 5 folds (not used for the submission) |
+| `history.csv`, `val_report.csv` | Training log and per-output validation metrics |
+| `train_headers.csv`, `test_headers.csv` | DICOM header scans |
+
+On Kaggle, click **Add Input** and attach this dataset: the notebook finds the two header CSVs under `/kaggle/input` and skips the
+≈ 5 h header scan. The notebook still trains the CNN itself; `best_cnn.pt` is for inference or fine-tuning in your own code.
+
 ## 10. Submitting to the Kaggle competition
 
 The competition closed in 2019, but Kaggle still accepts **late submissions**: they get a public and a private score but do not
@@ -600,6 +617,15 @@ If you use this work, please credit it (see [License](#15-license)). GitHub's **
   year   = {2026},
   howpublished = {\url{https://github.com/azizulabedinazmi/Brain-Bleed-Detection-on-CT}},
   note   = {ORCID: 0009-0003-5269-6900. Code: MIT License; documentation and figures: CC BY 4.0}
+}
+
+@misc{azmi2026brainbleedweights,
+  author = {Azizul Abedin Azmi},
+  title  = {RSNA ICH EfficientNet-B2 2.5D Weights},
+  year   = {2026},
+  publisher = {Kaggle},
+  howpublished = {\url{https://www.kaggle.com/datasets/azizulabedinazmi/rsna-ich-efficientnet-b2-25d-weights}},
+  note   = {Trained weights for Brain Bleed Detection on CT. ORCID: 0009-0003-5269-6900. License: CC BY-NC 4.0}
 }
 ```
 
