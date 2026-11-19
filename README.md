@@ -64,6 +64,7 @@ beats a predict-the-prevalence baseline on all six outputs. On the official stag
 7. [Discussion](#7-discussion)
 8. [Problems I hit and how I fixed them](#8-problems-i-hit-and-how-i-fixed-them)
 9. [Reproducing the results](#9-reproducing-the-results)
+   - [Trained weights on Hugging Face (access on request)](#trained-weights-access-on-request)
 10. [Submitting to the Kaggle competition](#10-submitting-to-the-kaggle-competition)
 11. [Configuration](#11-configuration)
 12. [Project structure](#12-project-structure)
@@ -596,8 +597,8 @@ Brain Bleed Detection on CT/
 │   ├── brain-bleed-rsna-azmi-kaggle.ipynb   # the whole pipeline, with the outputs of the local run
 │   ├── data/rsna/                           # RSNA data (not in the repo)
 │   └── work/                                # run outputs (not in the repo)
-│       ├── best_cnn.pt                      # best CNN checkpoint (epoch 3)
-│       ├── seq_gru_fold0-4.pt               # GRU folds
+│       ├── best_cnn.pt                      # best CNN checkpoint (epoch 3), shared on Hugging Face
+│       ├── seq_gru_fold0-4.pt               # GRU folds, shared on Hugging Face
 │       ├── history.csv                      # per-epoch training log
 │       ├── val_report.csv                   # per-output validation metrics
 │       ├── train_headers.csv / test_headers.csv / subset_meta.csv
@@ -608,6 +609,10 @@ Brain Bleed Detection on CT/
 ├── LICENSE-docs                             # CC BY 4.0 + attribution notice, for docs and figures
 └── README.md
 ```
+
+The trained weights are not stored in this repository; they are on
+[Hugging Face](https://huggingface.co/azizulabedinazmi/rsna-ich-efficientnet-b2-2.5d) (access on request), together with
+`inference_example.py`, a self-contained loading and prediction script.
 
 ## 13. Limitations and future work
 
@@ -622,7 +627,8 @@ Brain Bleed Detection on CT/
 - Train on all 753k slices and with K-fold CNNs, which also gives out-of-fold features to train the GRU on the training series.
 - Larger inputs (384–512 px) and other backbones (e.g. ConvNeXt); cache size grows with `IMG_SIZE²`.
 - Record the two-GPU speed-up on T4 x2 with the working NCHW + native batch-norm setting.
-- A separate inference notebook that loads saved weights, so a submission does not need retraining.
+- A full inference notebook that loads the saved weights from Hugging Face and writes `submission.csv` without retraining
+  (`inference_example.py` on Hugging Face already loads the model and predicts one sample).
 
 ## 14. Citation
 
