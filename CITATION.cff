@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below and credit Azizul Abedin Azmi."
+type: software
+title: "Brain Bleed Detection on CT: 2.5D EfficientNet-B2 and BiGRU for Intracranial Hemorrhage Detection"
+authors:
+  - given-names: "Azizul Abedin"
+    family-names: "Azmi"
+    orcid: "https://orcid.org/0009-0003-5269-6900"
+license: MIT
+abstract: >-
+  Multi-label detection of intracranial hemorrhage (any, epidural, intraparenchymal,
+  intraventricular, subarachnoid, subdural) on head CT slices from the RSNA Intracranial
+  Hemorrhage Detection dataset, using a 2.5D 9-channel EfficientNet-B2 and an optional
+  bidirectional GRU over each series.
+keywords:
+  - intracranial hemorrhage
+  - computed tomography
+  - medical imaging
+  - deep learning
+  - EfficientNet
+  - RSNA
+references:
+  - type: article
+    title: "Construction of a Machine Learning Dataset through Collaboration: The RSNA 2019 Brain CT Hemorrhage Challenge"
+    authors:
+      - family-names: "Flanders"
+        given-names: "Adam E."
+      - name: "et al."
+    journal: "Radiology: Artificial Intelligence"
+    year: 2020
+    doi: "10.1148/ryai.2020190211"
