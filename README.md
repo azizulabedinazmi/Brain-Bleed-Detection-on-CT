@@ -12,7 +12,8 @@
 [![Kaggle](https://img.shields.io/badge/Kaggle-RSNA%20ICH-20BEFF?logo=kaggle&logoColor=white)](https://www.kaggle.com/competitions/rsna-intracranial-hemorrhage-detection)
 [![Code: MIT](https://img.shields.io/badge/Code-MIT-yellow.svg)](LICENSE)
 [![Docs: CC BY 4.0](https://img.shields.io/badge/Docs%20%26%20figures-CC%20BY%204.0-lightgrey.svg)](LICENSE-docs)
-[![Weights on Kaggle](https://img.shields.io/badge/Weights-Kaggle%20Dataset-20BEFF?logo=kaggle&logoColor=white)](https://www.kaggle.com/datasets/azizulabedinazmi/rsna-ich-efficientnet-b2-25d-weights)
+[![Weights on Hugging Face](https://img.shields.io/badge/Weights-Request%20access-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/azizulabedinazmi/rsna-ich-efficientnet-b2-2.5d)
+[![Portfolio project](https://img.shields.io/badge/Type-Personal%20portfolio-8A2BE2)](#16-portfolio-project-and-disclaimer)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0003--5269--6900-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0003-5269-6900)
 
 <img src="assets/output.png" alt="One CT slice per hemorrhage subtype shown in brain, blood and soft-tissue windows and as an RGB stack" width="92%">
@@ -46,6 +47,12 @@ beats a predict-the-prevalence baseline on all six outputs. On the official stag
 
 </div>
 
+> [!NOTE]
+> **Personal portfolio project.** Built for learning and to demonstrate my work; submitted to Kaggle as a late submission
+> after the competition closed. Not affiliated with or endorsed by RSNA or Kaggle, and **not a medical device**.
+> The trained weights are available on Hugging Face **on request**. See
+> [Portfolio project and disclaimer](#16-portfolio-project-and-disclaimer).
+
 ## Table of contents
 
 1. [Introduction](#1-introduction)
@@ -63,6 +70,7 @@ beats a predict-the-prevalence baseline on all six outputs. On the official stag
 13. [Limitations and future work](#13-limitations-and-future-work)
 14. [Citation](#14-citation)
 15. [License](#15-license)
+16. [Portfolio project and disclaimer](#16-portfolio-project-and-disclaimer)
 
 ---
 
@@ -490,21 +498,32 @@ If the data is missing and `AUTO_DOWNLOAD = True`, the notebook downloads the zi
 For a quick smoke test, override the config through an environment variable before starting Jupyter, for example
 `RSNA_CFG='{"N_SLICES": 3000, "EPOCHS": 1}'`.
 
-### Trained weights
+### Trained weights (access on request)
 
-The trained model and run outputs are on Kaggle:
-**[RSNA ICH EfficientNet-B2 2.5D Weights](https://www.kaggle.com/datasets/azizulabedinazmi/rsna-ich-efficientnet-b2-25d-weights)**
-(currently private).
+The trained model is on Hugging Face as a **gated** model:
+**[azizulabedinazmi/rsna-ich-efficientnet-b2-2.5d](https://huggingface.co/azizulabedinazmi/rsna-ich-efficientnet-b2-2.5d)**.
+Downloads need my approval.
+
+**How to get access**
+1. Sign in to Hugging Face and open the model page.
+2. Click **Request access** and fill in the short form (name, affiliation, intended use), confirming that you have joined the
+   RSNA competition on Kaggle and will use the weights for non-commercial, non-clinical purposes only.
+3. I review each request manually. Once approved, the files can be downloaded with `hf download` or `hf_hub_download`.
 
 | File | Content |
 |---|---|
 | `best_cnn.pt` | CNN `state_dict`, best epoch (3), the model behind the 0.08346 private score |
 | `seq_gru_fold0-4.pt` | Bidirectional GRU, 5 folds (not used for the submission) |
 | `history.csv`, `val_report.csv` | Training log and per-output validation metrics |
-| `train_headers.csv`, `test_headers.csv` | DICOM header scans |
+| `inference_example.py` | Self-contained loading and prediction example |
 
-On Kaggle, click **Add Input** and attach this dataset: the notebook finds the two header CSVs under `/kaggle/input` and skips the
-≈ 5 h header scan. The notebook still trains the CNN itself; `best_cnn.pt` is for inference or fine-tuning in your own code.
+```python
+from huggingface_hub import hf_hub_download
+path = hf_hub_download("azizulabedinazmi/rsna-ich-efficientnet-b2-2.5d", "best_cnn.pt")   # after access is approved
+```
+
+The weights are licensed **CC BY-NC 4.0** (non-commercial), because the training data may be used for non-commercial purposes only.
+The notebook in this repository still trains the CNN itself; `best_cnn.pt` is for inference or fine-tuning in your own code.
 
 ## 10. Submitting to the Kaggle competition
 
@@ -621,10 +640,10 @@ If you use this work, please credit it (see [License](#15-license)). GitHub's **
 
 @misc{azmi2026brainbleedweights,
   author = {Azizul Abedin Azmi},
-  title  = {RSNA ICH EfficientNet-B2 2.5D Weights},
+  title  = {RSNA ICH EfficientNet-B2 2.5D},
   year   = {2026},
-  publisher = {Kaggle},
-  howpublished = {\url{https://www.kaggle.com/datasets/azizulabedinazmi/rsna-ich-efficientnet-b2-25d-weights}},
+  publisher = {Hugging Face},
+  howpublished = {\url{https://huggingface.co/azizulabedinazmi/rsna-ich-efficientnet-b2-2.5d}},
   note   = {Trained weights for Brain Bleed Detection on CT. ORCID: 0009-0003-5269-6900. License: CC BY-NC 4.0}
 }
 ```
@@ -651,6 +670,26 @@ repository). Example:
 purposes only and may not be copied, redistributed or re-identified. This repository contains no DICOM files. Several figures
 (`output.png`, `series_labels.png`, `context_input.png`, `augmentation.png`, `val_predictions.png`, `gradcam.png`,
 `test_predictions.png`) show example CT slices from the dataset for illustration only.
+
+**Weights:** [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/), distributed on request through Hugging Face
+(see [Trained weights](#trained-weights-access-on-request)).
+
+## 16. Portfolio project and disclaimer
+
+- **Purpose.** This is a personal portfolio and learning project by Azizul Abedin Azmi. It documents my own work on the RSNA
+  Intracranial Hemorrhage Detection dataset; it is not a commercial product or service.
+- **Competition status.** I joined the competition on Kaggle and accepted its rules. The submission was made in November 2026 as a
+  **late submission**, after the competition closed in November 2019; it is scored but not ranked and is not eligible for prizes.
+- **No affiliation.** This project is not affiliated with, sponsored or endorsed by the Radiological Society of North America (RSNA),
+  Kaggle, or any of the institutions that contributed data.
+- **Data.** The RSNA data is not redistributed here: no DICOM files, labels or header files are included, and the trained weights are
+  shared only on request with people who confirm they have accepted the competition rules. The example CT figures are included for
+  illustration only.
+- **Not for clinical use.** The model has not been clinically validated. It must not be used for diagnosis, triage or any decision
+  about a patient. All results are research results on one dataset.
+- **No warranty.** Everything here is provided "as is", without warranty of any kind (see [LICENSE](LICENSE)).
+- **Takedown requests.** If you are a rights holder and want any material removed, please
+  [open an issue](https://github.com/azizulabedinazmi/Brain-Bleed-Detection-on-CT/issues) and it will be removed promptly.
 
 ---
 
