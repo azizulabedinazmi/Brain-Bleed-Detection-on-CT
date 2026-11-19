@@ -1,0 +1,17 @@
+# Python / Jupyter
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# RSNA data: may not be redistributed (and is ~450 GB)
+Notebook/data/
+
+# Run outputs: checkpoints, caches, submission
+Notebook/work/
+*.pt
+*.npy
+dp_test_errors.log
+
+# Kaggle credentials
+kaggle.json
+
