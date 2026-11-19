@@ -98,7 +98,7 @@ hemorrhage. One slice can contain several subtypes at the same time (for example
 ## 2. Dataset
 
 [RSNA Intracranial Hemorrhage Detection](https://www.kaggle.com/competitions/rsna-intracranial-hemorrhage-detection/data) (stage 2):
-over 25,000 head-CT exams from four institutions, labelled by more than 60 volunteer expert radiologists. Each slice is one DICOM file.
+over 25,000 head-CT exams from four institutions, labelled by 60 volunteer expert neuroradiologists. Each slice is one DICOM file.
 
 `stage_2_train.csv` has 4,516,842 rows (one per *image × subtype*, 24 exact duplicates) → **752,802 labelled slices**.
 
@@ -654,8 +654,28 @@ If you use this work, please credit it (see [License](#15-license)). GitHub's **
 }
 ```
 
-Dataset: Flanders A. E. et al., *Construction of a Machine Learning Dataset through Collaboration: The RSNA 2019 Brain CT Hemorrhage
-Challenge*, Radiology: Artificial Intelligence, 2020.
+**Dataset.** If you use the RSNA data, please cite both the competition and the dataset paper:
+
+```bibtex
+@misc{rsna-intracranial-hemorrhage-detection,
+    author = {Anouk Stein, MD and Carol Wu and Chris Carr and George Shih and Jayashree Kalpathy-Cramer and Julia Elliott and kalpathy and Luciano Prevedello and Marc Kohli, MD and Matt Lungren and Phil Culliton and Robyn Ball and RSNA AI Challenges and Safwan Halabi MD},
+    title = {RSNA Intracranial Hemorrhage Detection},
+    year = {2019},
+    howpublished = {\url{https://www.kaggle.com/competitions/rsna-intracranial-hemorrhage-detection}},
+    note = {Kaggle}
+}
+
+@article{flanders2020rsnaich,
+  author  = {Flanders, Adam E. and Prevedello, Luciano M. and Shih, George and Halabi, Safwan S. and Kalpathy-Cramer, Jayashree and Ball, Robyn and Mongan, John T. and Stein, Anouk and Kitamura, Felipe C. and Lungren, Matthew P. and Choudhary, Gagandeep and Cala, Lesley and Coelho, Luiz and Mogensen, Monique and Mor{\'o}n, Fanny and Miller, Elka and Ikuta, Ichiro and Zohrabian, Vahe and McDonnell, Olivia and Lincoln, Christie and Shah, Lubdha and Joyner, David and Agarwal, Amit and Lee, Ryan K. and Nath, Jaya},
+  title   = {Construction of a Machine Learning Dataset through Collaboration: The {RSNA} 2019 Brain {CT} Hemorrhage Challenge},
+  journal = {Radiology: Artificial Intelligence},
+  volume  = {2},
+  number  = {3},
+  pages   = {e190211},
+  year    = {2020},
+  doi     = {10.1148/ryai.2020190211}
+}
+```
 
 ## 15. License
 

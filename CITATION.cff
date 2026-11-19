@@ -47,5 +47,40 @@ references:
         given-names: "Adam E."
       - name: "et al."
     journal: "Radiology: Artificial Intelligence"
+    volume: 2
+    issue: 3
+    start: "e190211"
     year: 2020
     doi: "10.1148/ryai.2020190211"
+  - type: data
+    title: "RSNA Intracranial Hemorrhage Detection"
+    authors:
+      - name: "RSNA AI Challenges"
+      - given-names: "Anouk"
+        family-names: "Stein"
+      - given-names: "Carol"
+        family-names: "Wu"
+      - given-names: "Chris"
+        family-names: "Carr"
+      - given-names: "George"
+        family-names: "Shih"
+      - given-names: "Jayashree"
+        family-names: "Kalpathy-Cramer"
+      - given-names: "Julia"
+        family-names: "Elliott"
+      - given-names: "Luciano"
+        family-names: "Prevedello"
+      - given-names: "Marc"
+        family-names: "Kohli"
+      - given-names: "Matt"
+        family-names: "Lungren"
+      - given-names: "Phil"
+        family-names: "Culliton"
+      - given-names: "Robyn"
+        family-names: "Ball"
+      - given-names: "Safwan"
+        family-names: "Halabi"
+    publisher:
+      name: "Kaggle"
+    year: 2019
+    url: "https://www.kaggle.com/competitions/rsna-intracranial-hemorrhage-detection"
